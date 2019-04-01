@@ -16,7 +16,15 @@ namespace DellChallenge.B
     {
         void Eat();
         void Drink();
+    }
+
+    public interface IFlyer : ISpecies
+    {
         void Fly();
+    }
+
+    public interface ISwimmer : ISpecies
+    {
         void Swim();
     }
 
@@ -28,7 +36,25 @@ namespace DellChallenge.B
         }
     }
 
-    public class Human : ISpecies
+    public class Human : Species, ISpecies
+    {
+        public void Drink()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Eat()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void GetSpecies()
+        {
+            Console.WriteLine($"Human");
+        }
+    }
+
+    public class Bird : Species, IFlyer
     {
         public void Drink()
         {
@@ -45,18 +71,34 @@ namespace DellChallenge.B
             throw new NotImplementedException();
         }
 
+        public override void GetSpecies()
+        {
+            Console.WriteLine($"Bird");
+        }
+
+    }
+
+    public class Fish : Species, ISwimmer
+    {
+        public void Drink()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Eat()
+        {
+            throw new NotImplementedException();
+        }
+
         public void Swim()
         {
             throw new NotImplementedException();
         }
-    }
 
-    public class Bird
-    {
-    }
-
-    public class Fish
-    {
+        public override void GetSpecies()
+        {
+            Console.WriteLine($"Fish");
+        }
     }
 }
 

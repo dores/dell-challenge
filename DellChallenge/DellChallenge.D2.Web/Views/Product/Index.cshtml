@@ -5,12 +5,23 @@
 }
 <h4>All Products</h4>
 <hr />
-
-@foreach (var item in Model)
+@if (Model.Count() == 0)
 {
     <div class="row">
-        <div class="col-md-4">
-            @item.Name - @item.Category
+        <div class="col-md-12">
+            No items to display!
         </div>
     </div>
 }
+else
+{
+    @foreach (var item in Model)
+    {
+        <div class="row">
+            <div class="col-md-4">
+                @item.Name - @item.Category - @Html.ActionLink("Update", "Update", "Product", new {id = item.Id}, null)
+            </div>
+        </div>
+    }
+}
+

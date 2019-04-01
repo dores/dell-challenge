@@ -7,5 +7,8 @@ namespace DellChallenge.D2.Web.Services
     {
         IEnumerable<ProductModel> GetAll();
         ProductModel Add(NewProductModel newProduct);
+        ProductModel Get(string id);
+        ProductModel Update(ProductModel product);
+        ProductModel Delete(string id);
     }
 }

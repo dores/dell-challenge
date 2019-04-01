@@ -7,6 +7,10 @@ namespace DellChallenge.A
         static void Main(string[] args)
         {
             // State and explain console output order.
+            //A.A() is writen by the constructor of base class
+            //B.B() is writen by the constructor of the class
+            //A .Age is writen by the age setter
+
             new B();
             Console.ReadKey();
         }

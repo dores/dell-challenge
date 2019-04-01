@@ -16,24 +16,31 @@ namespace DellChallenge.C
 
         private static void StartHere()
         {
-            myObject _MyNewObject = new myObject();
-            int obj1 = _MyNewObject.Do(1, 3);
-            int num2 = _MyNewObject.DoExtended(1, 3, 5);
+            MyObject _MyNewObject = new MyObject();
+            int obj1 = _MyNewObject.SumOfTwo(1, 3);
+            int num2 = _MyNewObject.SumOfThree(1, 3, 5);
             Console.WriteLine(obj1);
             Console.WriteLine(num2);
         }
     }
 
-    class myObject
+    class MyObject : ICalculator
     {
 
-        public int Do(int a, int b)
+        public int SumOfTwo(int a, int b)
         {
             return a + b;
         }
 
-        public int DoExtended(int a, int b, int c)
-        { return a + b + c;
+        public int SumOfThree(int a, int b, int c)
+        { 
+            return a + b + c;
         }
+    }
+
+    public interface ICalculator
+    {
+        int SumOfTwo(int a, int b);
+        int SumOfThree(int a, int b, int c);
     }
 }

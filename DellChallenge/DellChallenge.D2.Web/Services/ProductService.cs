@@ -23,5 +23,42 @@ namespace DellChallenge.D2.Web.Services
             var apiResponse = apiClient.Execute<List<ProductModel>>(apiRequest);
             return apiResponse.Data;
         }
+
+        public ProductModel Update(ProductModel product)
+        {
+            if(product != null)
+            {
+                var api = new RestClient("http://localhost:5000/api");
+                var apiRequest = new RestRequest("products", Method.PUT, DataFormat.Json);
+                apiRequest.AddJsonBody(product);
+                var apiResponse = api.Execute<ProductModel>(apiRequest);
+                return apiResponse.Data;
+            }
+            return null;
+        }
+
+        public ProductModel Get(string id)
+        {
+            if(!string.IsNullOrEmpty(id))
+            {
+                var api = new RestClient("http://localhost:5000/api");
+                var apiRequest = new RestRequest("products/"+id, Method.GET, DataFormat.Json);
+                var apiResponse = api.Execute<ProductModel>(apiRequest);
+                return apiResponse.Data;
+            }
+            return null;
+        }
+
+        public ProductModel Delete(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+                return null;
+
+            var api = new RestClient("http://localhost:5000/api");
+            var apiRequest = new RestRequest("products/" + id, Method.DELETE, DataFormat.Json);
+            var apiResponse = api.Execute<ProductModel>(apiRequest);
+            return apiResponse.Data;
+        }
+
     }
 }
