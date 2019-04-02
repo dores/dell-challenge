@@ -54,7 +54,7 @@ namespace DellChallenge.D2.Web.Controllers
             return View("Update", product.Id);
         }
 
-        [HttpPost]
+        [HttpGet]
         public IActionResult Delete(string id)
         {
             if (string.IsNullOrEmpty(id))

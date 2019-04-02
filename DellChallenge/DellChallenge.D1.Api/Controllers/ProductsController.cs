@@ -46,7 +46,7 @@ namespace DellChallenge.D1.Api.Controllers
             return Ok(_productsService.Delete(id));
         }
 
-        [HttpPut("{id}")]
+        [HttpPut]
         [EnableCors("AllowReactCors")]
         public ActionResult<ProductDto> Put([FromBody] ProductDto product)
         {

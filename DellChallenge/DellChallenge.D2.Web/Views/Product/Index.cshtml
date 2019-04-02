@@ -18,8 +18,8 @@ else
     @foreach (var item in Model)
     {
         <div class="row">
-            <div class="col-md-4">
-                @item.Name - @item.Category - @Html.ActionLink("Update", "Update", "Product", new {id = item.Id}, null)
+            <div class="col-md-6">
+                @item.Name - @item.Category - @Html.ActionLink("Update", "Update", "Product", new { id = item.Id }, null) - @Html.ActionLink("Delete", "Delete", "Product", new { id = item.Id}, null)
             </div>
         </div>
     }
